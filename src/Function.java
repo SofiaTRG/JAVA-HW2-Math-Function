@@ -1,9 +1,9 @@
 public class Function {
     // should be protected??
-    static String stringFunction;
+    static abstract function;
 
-    public Function(String function) {
-        this.function = function;
+    public Function(abstract function) {
+        this.function = Constant.function;
     }
 
     public double valueAt(double x) {

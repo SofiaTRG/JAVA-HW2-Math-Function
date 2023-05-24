@@ -29,7 +29,7 @@ public class DateTime extends Date {
     }
 
     @Override
-    public boolean equals(DateTime otherDateTime) {
+    public boolean equals(Object otherDateTime) {
         return this.hashCode() == otherDateTime.hashCode();
     }
 }

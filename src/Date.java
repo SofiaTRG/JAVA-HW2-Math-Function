@@ -32,7 +32,7 @@ public class Date {
     }
 
     @Override
-    public boolean equals(Date otherDate) {
+    public boolean equals(Object otherDate) {
         return this.hashCode() == otherDate.hashCode();
     }
 }
