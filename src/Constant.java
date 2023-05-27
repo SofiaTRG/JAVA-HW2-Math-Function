@@ -15,6 +15,10 @@ public final class Constant extends Function {
         return a + "x" + b;
     }
 
+    /**
+     * the derivative of constant function which is a
+     * @return f'(x) = a
+     */
     @Override
     public String derivative() {
         return String.valueOf(a);
@@ -35,8 +39,22 @@ public final class Constant extends Function {
         return super.newtonRaphsonMethod(num_1, num_2);
     }
 
+    /**
+     * returns taylor polynomial around x=n
+     * @param n
+     * @return taylor polynomial
+     */
     @Override
     public String taylorPolynomial(int n) {
-        return super.taylorPolynomial(n);
+        return getValue(n) + a + "x" ;
+    }
+
+    /**
+     * get the f(x) by given x
+     * @param x value of x, we want to find f(x)
+     * @return f(x)
+     */
+    public double getValue(double x) {
+        return a*x+b;
     }
 }
