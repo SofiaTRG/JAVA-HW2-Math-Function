@@ -1,35 +1,36 @@
 public abstract class Function {
 
-    public Object function;
-    public Function(Function function) {
-        this.function = Constant.function;
-    }
-
     public double valueAt(double x) {
         return 0;
     }
 
-    public String toStrong() {
-        return function.toString();
+    @Override
+    public String toString() {
+        return "toString";
     }
 
-    public String deriavative() {
-        return function.toString();
+    public String derivative() {
+        // Implement the logic to compute and return the derivative of the function
+        return "Derivative";
     }
 
     public double bisectionMethod(double a, double b, double epsilon) {
+        // Implement the Bisection Method algorithm
         return 0.0;
     }
 
     public double newtonRaphsonMethod(double a, double b) {
+        // Implement the Newton-Raphson Method algorithm
         return 0.0;
     }
 
     public double newtonRaphsonMethod(double a) {
+        // Implement the Newton-Raphson Method algorithm
         return 0.0;
     }
 
     public String taylorPolynomial(int n) {
-        return toString();
+        // Implement the logic to compute and return the Taylor Polynomial of degree n
+        return "Taylor Polynomial";
     }
 }

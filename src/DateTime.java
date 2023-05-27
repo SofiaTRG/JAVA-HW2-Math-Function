@@ -32,4 +32,16 @@ public class DateTime extends Date {
     public boolean equals(Object otherDateTime) {
         return this.hashCode() == otherDateTime.hashCode();
     }
+
+    public static void setHour(int hours) {
+        DateTime.hours = hours;
+    }
+
+    public static void setMinute(int minutes) {
+        DateTime.minutes = minutes;
+    }
+
+    public static void setMonth(int month) {
+        DateTime.month = month;
+    }
 }
