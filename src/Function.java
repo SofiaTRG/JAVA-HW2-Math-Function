@@ -1,8 +1,7 @@
-public class Function {
-    // should be protected??
-    static abstract function;
+public abstract class Function {
 
-    public Function(abstract function) {
+    public Object function;
+    public Function(Function function) {
         this.function = Constant.function;
     }
 
@@ -11,26 +10,26 @@ public class Function {
     }
 
     public String toStrong() {
-        return function;
+        return function.toString();
     }
 
     public String deriavative() {
-
+        return function.toString();
     }
 
     public double bisectionMethod(double a, double b, double epsilon) {
-
+        return 0.0;
     }
 
     public double newtonRaphsonMethod(double a, double b) {
-
+        return 0.0;
     }
 
-    public double newtonRaphsonMethod(double a, double epsilon) {
-
+    public double newtonRaphsonMethod(double a) {
+        return 0.0;
     }
 
     public String taylorPolynomial(int n) {
-
+        return toString();
     }
 }
