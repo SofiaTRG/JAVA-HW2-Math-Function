@@ -1,27 +1,25 @@
 /**
- * the constant functions is f(x)=ax+b
+ * the constant functions is f(x)=a
  */
 public final class Constant extends Function {
     static double a;
-    static double b;
 
-    public Constant(double a, double b) {
+    public Constant(double a) {
         this.a = a;
-        this.b = b;
     }
 
     @Override
     public String toString() {
-        return a + "x" + b;
+        return a + "x";
     }
 
     /**
-     * the derivative of constant function which is a
-     * @return f'(x) = a
+     * the derivative of constant function which is 0
+     * @return f'(x) = 0
      */
     @Override
     public String derivative() {
-        return String.valueOf(a);
+        return String.valueOf(0);
     }
 
     @Override
@@ -41,20 +39,11 @@ public final class Constant extends Function {
 
     /**
      * returns taylor polynomial around x=n
-     * @param n
+     * @param n the grade of taylor polynomial
      * @return taylor polynomial
      */
     @Override
     public String taylorPolynomial(int n) {
-        return getValue(n) + a + "x" ;
-    }
-
-    /**
-     * get the f(x) by given x
-     * @param x value of x, we want to find f(x)
-     * @return f(x)
-     */
-    public double getValue(double x) {
-        return a*x+b;
+        return String.valueOf(a);
     }
 }
