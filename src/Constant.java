@@ -2,15 +2,20 @@
  * the constant functions is f(x)=a
  */
 public final class Constant extends Function {
-    static double a;
+    static double[] a = new double[1];
+
+    @Override
+    public double valueAt(double x) {
+        return a[0];
+    }
 
     public Constant(double a) {
-        this.a = a;
+        this.a[0] = a;
     }
 
     @Override
     public String toString() {
-        return a + "x";
+        return a[0] + "x";
     }
 
     /**
@@ -44,6 +49,6 @@ public final class Constant extends Function {
      */
     @Override
     public String taylorPolynomial(int n) {
-        return String.valueOf(a);
+        return String.valueOf(a[0]);
     }
 }
