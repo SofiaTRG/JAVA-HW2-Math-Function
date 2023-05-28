@@ -1,3 +1,3 @@
-public class MultiSum extends Function{
+public class MultiSum extends Function {
 
 }
