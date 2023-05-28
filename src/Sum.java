@@ -3,67 +3,46 @@ import static java.lang.Math.min;
 
 // NEED THE POLY FUNCTION TO CONTINUE
 public class Sum extends Function {
-    double[] function;
+    Function function1;
+    Function function2;
 
-    public Sum(double[] function1, double[] function2) {
-        int sum_length = max(function1.length, function2.length);
-        double[] max_function = new double[sum_length];
-
-        if (function1.length > function2.length) {
-            max_function = function1;
-        } else {
-            max_function = function2;
-        }
-
-        int small_length = min(function1.length, function2.length);
-
-        double[] sum_function = new double[sum_length];
-
-        for (int i = 0; i < sum_length; i++) {
-            if (i < small_length) {
-                sum_function[i] = function1[i] + function2[i];
-            } else {
-                sum_function[i] = max_function[i];
-            }
-        }
+    public Sum(Function function1, Function function2) {
+        this.function1 = function1;
+        this.function2 = function2;
     }
 
     @Override
     public double valueAt(double x) {
-        return super.valueAt(x);
+        return function1.valueAt(x) + function2.valueAt(x);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return function1.toString() + function2.toString();
     }
 
     @Override
     public String derivative() {
-        double[] derivative_function = new double[function.length];
-        for (int i = 0; i < function.length; i++) {
-            derivative_function[i] = (i*function[i]);
-        }
-        return derivative_function;
+        return function1.derivative() + function2.derivative();
     }
 
     @Override
     public double bisectionMethod(double a, double b, double epsilon) {
-        return super.bisectionMethod(a, b, epsilon);
+        return function1.bisectionMethod(a, b, epsilon) + function2.bisectionMethod(a, b, epsilon);
     }
 
     @Override
     public double newtonRaphsonMethod(double a, double b) {
-        return super.newtonRaphsonMethod(a, b);
+        return function1.newtonRaphsonMethod(a, b) + function2.newtonRaphsonMethod(a, b);
     }
 
     @Override
     public double newtonRaphsonMethod(double a) {
-        return super.newtonRaphsonMethod(a);
+        return function1.newtonRaphsonMethod(a) + function2.newtonRaphsonMethod(a);
     }
 
     @Override
     public String taylorPolynomial(int n) {
-        return super.taylorPolynomial(n);
+        return function1.taylorPolynomial(n) + function2.taylorPolynomial(n);
     }
 }
