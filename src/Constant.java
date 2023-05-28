@@ -2,20 +2,20 @@
  * the constant functions is f(x)=a
  */
 public final class Constant extends Function {
-    static double[] a = new double[1];
+    static double a;
 
     @Override
     public double valueAt(double x) {
-        return a[0];
+        return a;
     }
 
     public Constant(double a) {
-        this.a[0] = a;
+        this.a = a;
     }
 
     @Override
     public String toString() {
-        return a[0] + "x";
+        return String.valueOf((a));
     }
 
     /**
@@ -28,27 +28,18 @@ public final class Constant extends Function {
     }
 
     @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return super.bisectionMethod(a, b, epsilon);
-    }
+    public double bisectionMethod(double a, double b, double epsilon) { return Constant.a; }
 
     @Override
     public double newtonRaphsonMethod(double num_1) {
-        return super.newtonRaphsonMethod(num_1);
+        return a;
     }
 
     @Override
-    public double newtonRaphsonMethod(double num_1, double num_2) {
-        return super.newtonRaphsonMethod(num_1, num_2);
-    }
+    public double newtonRaphsonMethod(double num_1, double num_2) { return a; }
 
-    /**
-     * returns taylor polynomial around x=n
-     * @param n the grade of taylor polynomial
-     * @return taylor polynomial
-     */
     @Override
     public String taylorPolynomial(int n) {
-        return String.valueOf(a[0]);
+        return String.valueOf(a);
     }
 }
