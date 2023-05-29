@@ -7,6 +7,7 @@ public class Quotient extends Function {
         this.function2 = function2;
     }
 
+    // IF FUNCTION2 = 0
     @Override
     public double valueAt(double x) {
         return function1.valueAt(x)/function2.valueAt(x);

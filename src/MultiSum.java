@@ -1,5 +1,5 @@
 public class MultiSum extends Function {
-    private Function[] functions;
+    private Function[]. functions;
 
     public MultiSum(Function... functions) {
         this.functions = functions;

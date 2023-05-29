@@ -1,5 +1,3 @@
-import static java.lang.Math.max;
-import static java.lang.Math.min;
 
 // NEED THE POLY FUNCTION TO CONTINUE
 public class Sum extends Function {
