@@ -4,7 +4,7 @@ public abstract class Function {
 
     public abstract String toString();
 
-    public abstract String derivative();
+    public abstract Function derivative();
 
     public abstract double bisectionMethod(double a, double b, double epsilon);
 

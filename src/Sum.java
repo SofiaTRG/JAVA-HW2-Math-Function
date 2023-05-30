@@ -20,8 +20,8 @@ public class Sum extends Function {
     }
 
     @Override
-    public String derivative() {
-        return function1.derivative() + function2.derivative();
+    public Function derivative() {
+        return new Sum(function1.derivative() , function2.derivative());
     }
 
     @Override

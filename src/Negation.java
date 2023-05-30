@@ -15,8 +15,8 @@ public class Negation extends Function{
     }
 
     @Override
-    public String derivative() {
-        return "-(" + function.derivative() + ")";
+    public Function derivative() {
+        return new Negation(derivative());
     }
 
     @Override

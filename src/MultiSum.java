@@ -1,5 +1,5 @@
 public class MultiSum extends Function {
-    private Function[]. functions;
+    private Function[] functions;
 
     public MultiSum(Function... functions) {
         this.functions = functions;
@@ -24,12 +24,16 @@ public class MultiSum extends Function {
     }
 
     @Override
-    public String derivative() {
-        StringBuilder sb = new StringBuilder();
+    public Function derivative() {
+        int lengthFunctions = functions.length;
+        Function[] derivativeMulti = new Function[lengthFunctions];
+
+        int i = 0;
         for (Function function : functions) {
-            sb.append(function.derivative());
+            derivativeMulti[i] = function.derivative();
+            i++;
         }
-        return sb.toString();
+        return new MultiSum(derivativeMulti);
     }
 
     @Override

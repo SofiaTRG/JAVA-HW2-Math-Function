@@ -23,8 +23,8 @@ public final class Constant extends Function {
      * @return f'(x) = 0
      */
     @Override
-    public String derivative() {
-        return String.valueOf(0);
+    public Function derivative() {
+        return new Constant(0);
     }
 
     @Override
