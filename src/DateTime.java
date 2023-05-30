@@ -25,12 +25,12 @@ public class DateTime extends Date {
 
     @Override
     public int hashCode() {
-        return toString().hashCode();
+        return (new Date(day, month, year).hashCode())*1440 + 60*hours + minutes;
     }
 
     @Override
     public boolean equals(Object otherDateTime) {
-        return this.hashCode() == otherDateTime.hashCode();
+        return this.toString() == otherDateTime.toString();
     }
 
     public static void setHour(int hours) {

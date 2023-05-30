@@ -28,11 +28,12 @@ public class Date {
 
     @Override
     public int hashCode() {
-        return toString().hashCode();
+
+        return day + 12*month + 365*year;
     }
 
     @Override
     public boolean equals(Object otherDate) {
-        return this.hashCode() == otherDate.hashCode();
+        return this.toString() == otherDate.toString();
     }
 }
