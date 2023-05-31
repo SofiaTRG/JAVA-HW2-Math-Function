@@ -139,7 +139,7 @@ public class Polynomial extends Function{
     }
 
     @Override
-    public String taylorPolynomial(int n) {
+    public Function taylorPolynomial(int n) {
         StringBuilder taylor = new StringBuilder();
 
         // Add f(x=0)
@@ -163,7 +163,7 @@ public class Polynomial extends Function{
             }
         }
 
-        return taylor.toString();
+        return taylor;
     }
 
     private int factorial(int n) {
