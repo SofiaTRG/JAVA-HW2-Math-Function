@@ -10,7 +10,7 @@ public abstract class Function {
         double mid;
         double left=a;
         double right=b;
-        while(Math.abs(Math.abs(right)-Math.abs(left))>epsilon)
+        while(right-left > epsilon)
         {
             mid=(left+right)/2.0;
             if(valueAt(left)*valueAt(mid)>0)
@@ -28,7 +28,7 @@ public abstract class Function {
 
     public double newtonRaphsonMethod(double a, double epsilon) {
         double root=a;
-        while (Math.abs(valueAt(root))>epsilon)
+        while (Math.abs(valueAt(root)) >= epsilon)
         {
             root=root-(valueAt(root)/derivative().valueAt(root));
         }
