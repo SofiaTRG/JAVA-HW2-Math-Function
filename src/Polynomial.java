@@ -138,45 +138,9 @@ public class Polynomial extends Function{
 
     }
 
-    @Override
+
     public Function taylorPolynomial(int n) {
-        StringBuilder taylor = new StringBuilder();
-
-        // Add f(x=0)
-        taylor.append(valueAt(0));
-
-        Function currentDerivative = this;
-        double currentCoefficient;
-
-        for (int i = 1; i <= n; i++) {
-            currentDerivative = currentDerivative.derivative();
-            currentCoefficient = currentDerivative.valueAt(0) / factorial(i);
-
-            if (currentCoefficient != 0) {
-                taylor.append(" + " + currentCoefficient);
-
-                if (i > 1) {
-                    taylor.append("x^" + i);
-                } else {
-                    taylor.append("x");
-                }
-            }
-        }
-
-        return taylor;
+        return super.taylorPolynomial(n);
     }
 
-    private int factorial(int n) {
-        if (n <= 1) {
-            return 1;
-        }
-
-        int result = 1;
-
-        for (int i = 2; i <= n; i++) {
-            result *= i;
-        }
-
-        return result;
-    }
 }
