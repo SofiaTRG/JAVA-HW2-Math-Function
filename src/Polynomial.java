@@ -2,6 +2,7 @@ public class Polynomial extends Function{
 
     private final double[] coefficients;
 
+    //hey
     public Polynomial(double... coefficients) {
         this.coefficients = coefficients;
     }
