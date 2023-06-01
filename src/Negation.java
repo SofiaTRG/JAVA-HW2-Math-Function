@@ -19,23 +19,4 @@ public class Negation extends Function{
         return new Negation(derivative());
     }
 
-    @Override
-    public double bisectionMethod(double a, double b, double epsilon) {
-        return -bisectionMethod(a, b, epsilon);
-    }
-
-    @Override
-    public double newtonRaphsonMethod(double a, double b) {
-        return -function.newtonRaphsonMethod(a, b);
-    }
-
-    @Override
-    public double newtonRaphsonMethod(double a) {
-        return -function.newtonRaphsonMethod(a);
-    }
-
-    @Override
-    public String taylorPolynomial(int n) {
-        return null;
-    }
 }
