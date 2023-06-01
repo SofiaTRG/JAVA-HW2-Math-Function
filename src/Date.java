@@ -23,7 +23,16 @@ public class Date {
 
     @Override
     public String toString() { // ask for validation
-        return day + "/" + month + "/" + year;
+        String dayString = "";
+        String monthString = "";
+        String yearString = "";
+        if (day < 10) {
+            dayString += "0";
+        } if (month < 10) {
+            monthString += "0";
+        }
+        // NEED TO FINISH!!!!! THE YEAR
+        return dayString + "/" + monthString + "/" + yearString;
     }
 
     @Override
