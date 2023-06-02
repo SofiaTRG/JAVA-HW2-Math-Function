@@ -19,6 +19,6 @@ public class Difference extends Function{
 
     @Override
     public Function derivative() {
-
+        return new Difference(function1.derivative(), function2.derivative());
     }
 }

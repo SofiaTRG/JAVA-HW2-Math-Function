@@ -65,7 +65,7 @@ public class Polynomial extends Function{
 
 
         if(polynomial.length() == 0)
-            return "(0)"; // Maybe Create new Constant 0 and print toString.Constant ??
+            return new Constant(0).toString();
         else
             return "(" + polynomial + ")";
     }
