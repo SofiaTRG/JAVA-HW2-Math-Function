@@ -20,7 +20,18 @@ public class DateTime extends Date {
 
     @Override
     public String toString() {
-        return super.toString() + " " + hours + ":" + minutes;
+        String hoursString = "";
+        String minutesString = "";
+        if (hours < 10) {
+            hoursString = "0" + hours;
+        } else {
+            hoursString = String.valueOf(hours);
+        } if (minutes < 10) {
+            minutesString = "0" + minutes;
+        } else {
+            minutesString = String.valueOf(minutes);
+        }
+        return super.toString() + " " + hoursString + ":" + minutesString;
     }
 
     @Override

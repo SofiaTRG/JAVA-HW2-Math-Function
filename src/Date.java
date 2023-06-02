@@ -25,14 +25,23 @@ public class Date {
     public String toString() { // ask for validation
         String dayString = "";
         String monthString = "";
-        String yearString = "";
         if (day < 10) {
             dayString += "0";
         } if (month < 10) {
             monthString += "0";
         }
-        // NEED TO FINISH!!!!! THE YEAR
+        String yearString = addZerosYear(year);
         return dayString + "/" + monthString + "/" + yearString;
+    }
+
+    private String addZerosYear(int year) {
+        String stringYear = "";
+        int WANTED_Length = 4;
+        int zeros = WANTED_Length - String.valueOf(year).length();
+        for (int i = 0; i < WANTED_Length; i++) {
+            stringYear += "0";
+        }
+        return stringYear + year;
     }
 
     @Override
