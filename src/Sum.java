@@ -1,8 +1,8 @@
 
 // NEED THE POLY FUNCTION TO CONTINUE
 public class Sum extends Function {
-    Function function1;
-    Function function2;
+    private final Function function1;
+    private final Function function2;
 
     public Sum(Function function1, Function function2) {
         this.function1 = function1;

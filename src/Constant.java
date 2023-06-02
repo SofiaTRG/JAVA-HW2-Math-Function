@@ -1,13 +1,14 @@
 /**
- * the constant functions is f(x)=a
+ * the constant functions is f(x)=a. has only one value inside, "a" as double.
  */
 public final class Constant extends Function {
-    static double a;
+    private final double a;
 
     @Override
     public double valueAt(double x) {
         return a;
     }
+
 
     public Constant(double a) {
         this.a = a;

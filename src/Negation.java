@@ -1,5 +1,5 @@
 public class Negation extends Function{
-    Function function;
+    private final Function function;
 
     public Negation(Function function) {
         this.function = function;
