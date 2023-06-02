@@ -16,7 +16,7 @@ public class Negation extends Function{
 
     @Override
     public Function derivative() {
-        return new Negation(derivative());
+        return new Negation(function.derivative());
     }
 
 }

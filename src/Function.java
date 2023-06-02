@@ -7,55 +7,62 @@ public abstract class Function {
     public abstract Function derivative();
 
     public double bisectionMethod(double a, double b, double epsilon) {
-        double mid;
-        double left=a;
-        double right=b;
-        while(right-left > epsilon)
-        {
-            mid=(left+right)/2.0;
-            if(valueAt(left)*valueAt(mid)>0)
-                left=mid;
+        double middle;
+        double left = a;
+        double right = b;
+        while(right - left > epsilon) {
+            middle = (left+right)/2.0;
+            if (valueAt(left) * valueAt(middle) > 0)
+                left = middle;
             else
-                right=mid;
-
+                right = middle;
         }
-        return ((left+right)/2);
+        return ((left+right) / 2);
     }
 
     public double bisectionMethod(double a,double b){
-        return bisectionMethod(a,b,Math.pow(10,-5));
+        double epsilon = Math.pow(10,-5);
+        return bisectionMethod(a, b, epsilon);
     }
 
     public double newtonRaphsonMethod(double a, double epsilon) {
-        double root=a;
-        while (Math.abs(valueAt(root)) >= epsilon)
+        double newton=a;
+        while (Math.abs(valueAt(newton)) >= epsilon)
         {
-            root=root-(valueAt(root)/derivative().valueAt(root));
+            newton = newton - (valueAt(newton)/derivative().valueAt(newton));
         }
-        return root;
+        return newton;
     }
 
     public double newtonRaphsonMethod(double a){
-        return newtonRaphsonMethod(a,(double) Math.pow(10,-5));
+        double epsilon = Math.pow(10, -5);
+        return newtonRaphsonMethod(a, epsilon);
     }
-
 
     public Function taylorPolynomial(int n) {
         if (n > 0) {
-            double taylorArr[] = new double[n+1];
-            Function derevite = this;
-            taylorArr[0] = derevite.valueAt(0);
-            derevite = derevite.derivative();
-            double derivativ=1;
-            for (int i = 1; i <= n; i++) {
-                derivativ=(double) derivativ*i;
-                taylorArr[i] = derevite.valueAt(0) / derivativ;
-                derevite = derevite.derivative();
+            double taylorArr[] = new double[n + 1];
+            Function derivative = this;
+            for (int i = 0; i <= n; i++) {
+                taylorArr[i] = derivative.valueAt(0) / factorial(i);
+                derivative = derivative.derivative();
             }
-            Polynomial tylorPol = new Polynomial(taylorArr);
-            return tylorPol;
-        }else return new Polynomial(this.valueAt(0));
+            Polynomial taylorPolynomial = new Polynomial(taylorArr);
+            return taylorPolynomial;
+        } else {
+            return new Polynomial(this.valueAt(0));
+        }
     }
 
-
+    private double factorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        double result = 1;
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
 }
+
