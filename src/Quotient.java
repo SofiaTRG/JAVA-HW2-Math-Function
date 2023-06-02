@@ -22,8 +22,8 @@ public class Quotient extends Function {
     //NEED TO USE THE PRODUCT FUNCTION???
     @Override
     public Function derivative() {
-        return new Quotient((Sum((Product(function1.derivative(), function2)),
-                Negation(Product(function1, function2.derivative())))), Power(function2), 2);
+        return new Quotient((new Sum((new Product(function1.derivative(), function2)),
+                new Negation(new Product(function1, function2.derivative())))), new Power(function2, 2));
     }
 
 }

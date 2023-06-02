@@ -52,6 +52,6 @@ public class Date {
 
     @Override
     public boolean equals(Object otherDate) {
-        return this.toString() == otherDate.toString();
+        return this.toString().equals(otherDate.toString());
     }
 }

@@ -41,7 +41,7 @@ public class DateTime extends Date {
 
     @Override
     public boolean equals(Object otherDateTime) {
-        return this.toString() == otherDateTime.toString();
+        return this.toString().equals(otherDateTime.toString());
     }
 
     public static void setHour(int hours) {
