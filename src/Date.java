@@ -3,7 +3,7 @@ public class Date {
     static int month;
     static int year;
 
-    public Date(int day, int month, int year) {
+    public Date(int year, int month, int day) {
         if (day < 1 || day > 31) { // Ask metargel if magic number
             this.day = 1;
         } else {
@@ -23,25 +23,10 @@ public class Date {
 
     @Override
     public String toString() { // ask for validation
-        String dayString = "";
-        String monthString = "";
-        if (day < 10) {
-            dayString += "0";
-        } if (month < 10) {
-            monthString += "0";
-        }
-        String yearString = addZerosYear(year);
+        String dayString = String.format("%02d", day);
+        String monthString = String.format("%02d", month);
+        String yearString = String.format("%04d", year);
         return dayString + "/" + monthString + "/" + yearString;
-    }
-
-    private String addZerosYear(int year) {
-        String stringYear = "";
-        int WANTED_Length = 4;
-        int zeros = WANTED_Length - String.valueOf(year).length();
-        for (int i = 0; i < WANTED_Length; i++) {
-            stringYear += "0";
-        }
-        return stringYear + year;
     }
 
     @Override
@@ -56,5 +41,12 @@ public class Date {
             return this.toString().equals(otherDate.toString());
         }
         return false;
+    }
+    public void setMonth(int month) {
+        if (month < 1 || month > 12) {
+            this.month = 1;
+        } else {
+            this.month = month;
+        }
     }
 }

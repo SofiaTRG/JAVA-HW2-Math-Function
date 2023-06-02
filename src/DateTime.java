@@ -5,13 +5,14 @@ public class DateTime extends Date {
     static int minutes;
     static int hours;
 
-    public DateTime(int day, int month, int year, int minutes, int hours) {
-        super(day, month, year);
+    public DateTime(int year, int month, int day, int minutes, int hours) {
+        super(year, month, day);
         if (minutes < 0 || minutes > 59) {
             this.minutes = 0;
         } else {
             this.minutes = minutes;
-        } if (hours < 0 || hours > 23) {
+        }
+        if (hours < 0 || hours > 23) {
             this.hours = 0;
         } else {
             this.hours = hours;
@@ -20,23 +21,14 @@ public class DateTime extends Date {
 
     @Override
     public String toString() {
-        String hoursString = "";
-        String minutesString = "";
-        if (hours < 10) {
-            hoursString = "0" + hours;
-        } else {
-            hoursString = String.valueOf(hours);
-        } if (minutes < 10) {
-            minutesString = "0" + minutes;
-        } else {
-            minutesString = String.valueOf(minutes);
-        }
+        String hoursString = String.format("%02d", hours);
+        String minutesString = String.format("%02d", minutes);
         return super.toString() + " " + hoursString + ":" + minutesString;
     }
 
     @Override
     public int hashCode() {
-        return (new Date(day, month, year).hashCode())*1440 + 60*hours + minutes;
+        return (new Date(day, month, year).hashCode()) * 1440 + 60 * hours + minutes;
     }
 
     @Override
@@ -47,15 +39,19 @@ public class DateTime extends Date {
         return false;
     }
 
-    public static void setHour(int hours) {
-        DateTime.hours = hours;
+    public void setHour(int hours) {
+        if (hours < 0 || hours > 23) {
+            this.hours = 0;
+        } else {
+            this.hours = hours;
+        }
     }
 
-    public static void setMinute(int minutes) {
-        DateTime.minutes = minutes;
-    }
-
-    public static void setMonth(int month) {
-        DateTime.month = month;
+    public void setMinute(int minutes) {
+        if (minutes < 0 || minutes > 59) {
+            this.minutes = 0;
+        } else {
+            this.minutes = minutes;
+        }
     }
 }
