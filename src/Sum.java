@@ -16,7 +16,7 @@ public class Sum extends Function {
 
     @Override
     public String toString() {
-        return function1.toString() + function2.toString();
+        return "(" + function1.toString() + " + "  + function2.toString() + ")";
     }
 
     @Override

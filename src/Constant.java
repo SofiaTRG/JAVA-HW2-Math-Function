@@ -16,7 +16,11 @@ public final class Constant extends Function {
 
     @Override
     public String toString() {
-        return String.valueOf((a));
+        if (a == (int) a) {
+            return "(" + (int) a + ")";
+        } else {
+            return "(" + a + ")";
+        }
     }
 
     /**

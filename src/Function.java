@@ -41,22 +41,17 @@ public abstract class Function {
 
     public Function taylorPolynomial(int n) {
         if (n > 0) {
-            double taylorArr[] = new double[n+1];
-            Function derevite = this;
-            taylorArr[0] = derevite.valueAt(0);
-            derevite = derevite.derivative();
-            double derivativ=1;
-            for (int i = 1; i <= n; i++) {
-                derivativ=(double) derivativ*i;
-                taylorArr[i] = derevite.valueAt(0) / derivativ;
-                derevite = derevite.derivative();
+            double taylorArr[] = new double[n + 1];
+            Function derivative = this;
+            for (int i = 0; i <= n; i++) {
+                taylorArr[i] = derivative.valueAt(0);
+                derivative = derivative.derivative();
             }
-            Polynomial tylorPol = new Polynomial(taylorArr);
-            return tylorPol;
-        }else return new Polynomial(this.valueAt(0));
+            Polynomial taylorPolynomial = new Polynomial(taylorArr);
+            return taylorPolynomial;
+        } else {
+            return new Polynomial(this.valueAt(0));
+        }
+    }
+
 }
-
-
-
-}
-
