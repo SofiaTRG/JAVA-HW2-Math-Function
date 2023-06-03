@@ -36,11 +36,7 @@ public class Polynomial extends Function{
             if (polynomial.length() > 0) {
                 if (coefficient > 0) {
                     polynomial.append(" + ");
-                } else {
-                    polynomial.append(" - ");
                 }
-            } else if (coefficient < 0) {
-                polynomial.append("-");
             }
 
 

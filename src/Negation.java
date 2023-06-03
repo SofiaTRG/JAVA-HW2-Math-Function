@@ -11,7 +11,7 @@ public class Negation extends Function{
 
     @Override
     public String toString() {
-        return "-(" + function.toString() + ")";
+        return "(-" + function.toString() + ")";
     }
 
     @Override
