@@ -30,10 +30,8 @@ public class Power extends Function {
         Function powerDerivative = new Power(function, exponent - 1);
         Function exponentConstant = new Constant(exponent);
         // Apply the chain rule to calculate the derivative of the power term
-        Function powerTermDerivative = new MultiProduct(exponentConstant, powerDerivative, functionDerivative);
+        return new MultiProduct(exponentConstant, powerDerivative, functionDerivative);
 
-        // Apply the product rule to calculate the derivative of the entire Power function
-        return new Product(powerTermDerivative, functionDerivative);
     }
 
 }

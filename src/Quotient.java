@@ -23,10 +23,8 @@ public class Quotient extends Function {
 
     @Override
     public Function derivative() {
-        Function numerator = new Sum(
-                new Product(function1.derivative(), function2),
-                new Negation(new Product(function1, function2.derivative()))
-        );
+        Function numerator = new Difference(new Product(function1.derivative(), function2),
+                new Product(function2.derivative(), function1));
         Function denominator = new Power(function2, 2);
         return new Quotient(numerator, denominator);
     }
