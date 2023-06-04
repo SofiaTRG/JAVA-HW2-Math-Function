@@ -41,10 +41,12 @@ public abstract class Function {
 
     public Function taylorPolynomial(int n) {
         if (n > 0) {
+            double factorial;
             double taylorArr[] = new double[n + 1];
             Function derivative = this;
             for (int i = 0; i <= n; i++) {
-                taylorArr[i] = derivative.valueAt(0);
+                factorial = factorial(i);
+                taylorArr[i] = (derivative.valueAt(0))/factorial;
                 derivative = derivative.derivative();
             }
             Polynomial taylorPolynomial = new Polynomial(taylorArr);
@@ -52,6 +54,14 @@ public abstract class Function {
         } else {
             return new Polynomial(this.valueAt(0));
         }
+    }
+
+    private double factorial(int i) {
+        double factorial = 1;
+        for (int k = 1; k <= i; k++) {
+            factorial *= k;
+        }
+        return factorial;
     }
 
 }

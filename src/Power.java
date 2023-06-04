@@ -16,15 +16,19 @@ public class Power extends Function {
 
     @Override
     public String toString() {
-        return "(" + function.toString() + ")^" + exponent;
+        return "(" + function.toString() + "^" + exponent + ")";
     }
 
     @Override
     public Function derivative() {
+        if (exponent == 0) {
+            return new Constant(0);
+        } if (exponent == 1) {
+            return function.derivative();
+        }
         Function functionDerivative = function.derivative();
         Function powerDerivative = new Power(function, exponent - 1);
         Function exponentConstant = new Constant(exponent);
-
         // Apply the chain rule to calculate the derivative of the power term
         Function powerTermDerivative = new MultiProduct(exponentConstant, powerDerivative, functionDerivative);
 

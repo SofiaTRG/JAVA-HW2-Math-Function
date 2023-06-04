@@ -17,9 +17,12 @@ public class MultiSum extends Function {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("(");
         for (Function function : functions) {
             sb.append(function.toString());
+            sb.append(" + ");
         }
+        sb.append(")");
         return sb.toString();
     }
 

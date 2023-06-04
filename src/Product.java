@@ -20,6 +20,6 @@ public class Product extends Function {
     public Function derivative() {
         Function derivative1 = function1.derivative();
         Function derivative2 = function2.derivative();
-        return new Sum(new Product(derivative1, function2), new Product(function1, derivative2));
+        return new Sum(new Product(derivative1, function2), new Product(derivative2, function1));
     }
 }
