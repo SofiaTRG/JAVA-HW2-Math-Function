@@ -69,6 +69,9 @@ public class Polynomial extends Function{
     @Override
     public Function derivative() {
         int lengthDerivative = coefficients.length;
+        if (lengthDerivative == 0) {
+            return new Constant(0);
+        }
         double[] derivativePolynomial = new double[lengthDerivative - 1];
 
         for (int i = 1; i < lengthDerivative; i++) {

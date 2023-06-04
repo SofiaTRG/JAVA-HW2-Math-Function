@@ -23,7 +23,14 @@ public class Power extends Function {
     public Function derivative() {
         Function functionDerivative = function.derivative();
         Function powerDerivative = new Power(function, exponent - 1);
-        return new Product(new Constant(exponent), new Product(powerDerivative, functionDerivative));
+        Function exponentConstant = new Constant(exponent);
+
+        // Apply the chain rule to calculate the derivative of the power term
+        Function powerTermDerivative = new MultiProduct(exponentConstant, powerDerivative, functionDerivative);
+
+        // Apply the product rule to calculate the derivative of the entire Power function
+        return new Product(powerTermDerivative, functionDerivative);
     }
+
 }
 

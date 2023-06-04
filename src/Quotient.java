@@ -7,23 +7,27 @@ public class Quotient extends Function {
         this.function2 = function2;
     }
 
-    // IF FUNCTION2 = 0
     @Override
     public double valueAt(double x) {
-        return function1.valueAt(x)/function2.valueAt(x);
+        double value2 = function2.valueAt(x);
+        if (value2 == 0) {
+            throw new ArithmeticException("Division by zero error!");
+        }
+        return function1.valueAt(x) / value2;
     }
 
-    //?????????????????????????????????????
     @Override
     public String toString() {
         return "(" + function1.toString() + " / " + function2.toString() + ")";
     }
 
-    //NEED TO USE THE PRODUCT FUNCTION???
     @Override
     public Function derivative() {
-        return new Quotient((new Sum((new Product(function1.derivative(), function2)),
-                new Negation(new Product(function1, function2.derivative())))), new Power(function2, 2));
+        Function numerator = new Sum(
+                new Product(function1.derivative(), function2),
+                new Negation(new Product(function1, function2.derivative()))
+        );
+        Function denominator = new Power(function2, 2);
+        return new Quotient(numerator, denominator);
     }
-
 }
