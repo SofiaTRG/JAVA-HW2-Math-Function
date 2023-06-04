@@ -17,7 +17,6 @@ public class Polynomial extends Function{
 
     @Override
     public String toString() {
-
         StringBuilder polynomial = new StringBuilder();
         int highestPower = coefficients.length - 1;
 
@@ -31,16 +30,20 @@ public class Polynomial extends Function{
                 continue;
             }
 
-
-            // This block is responsability for the SIGN
             if (polynomial.length() > 0) {
                 if (coefficient > 0) {
                     polynomial.append(" + ");
+                } else {
+                    polynomial.append(" - ");
+                    coefficient = Math.abs(coefficient);
+                }
+            } else {
+                if (coefficient < 0) {
+                    polynomial.append("-");
+                    coefficient = Math.abs(coefficient);
                 }
             }
 
-
-            // This block is responsabilty for the VALUE and the FORMAT
             if (isOne && i > 0) {
                 polynomial.append("x");
             } else {
@@ -59,11 +62,11 @@ public class Polynomial extends Function{
             }
         }
 
-
-        if(polynomial.length() == 0)
-            return new Constant(0).toString();
-        else
+        if (polynomial.length() == 0) {
+            return "0";
+        } else {
             return "(" + polynomial + ")";
+        }
     }
 
     @Override

@@ -2,6 +2,7 @@ public class MultiSum extends Function {
     private final Function[] functions;
 
     public MultiSum(Function... functions) {
+
         this.functions = functions;
     }
 

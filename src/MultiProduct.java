@@ -1,9 +1,15 @@
 public class MultiProduct extends Function {
     private final Function[] functions;
 
-    public MultiProduct(Function... functions) {
-        this.functions = functions;
+    public MultiProduct(Function function1, Function... functions) {
+        this.functions = new Function[functions.length + 1];
+        this.functions[0] = function1;
+
+        for (int i = 0; i < functions.length; i++) {
+            this.functions[i + 1] = functions[i];
+        }
     }
+
 
     @Override
     public double valueAt(double x) {
@@ -43,14 +49,14 @@ public class MultiProduct extends Function {
                 }
             }
 
-            Function productOfOtherFunctions = new MultiProduct(otherFunctions);
-            Function derivativeOfProduct = productOfOtherFunctions.derivative();
-            Function derivativeOfCurrentFunction = functions[i].derivative();
+            //Function productOfOtherFunctions = new MultiProduct(otherFunctions);
+            //Function derivativeOfCurrentFunction = functions[i].derivative();
 
-            derivatives[i] = new Product(derivativeOfCurrentFunction, productOfOtherFunctions);
+            derivatives[i] = new MultiProduct(functions[i].derivative(), otherFunctions);
         }
-
+        // TEST TEST TEST
+        //System.out.println("PRINT OF MULTI PRODUCT");
+        //System.out.println(new MultiSum(derivatives));
         return new MultiSum(derivatives);
     }
-
 }

@@ -18,8 +18,8 @@ public class Product extends Function {
 
     @Override
     public Function derivative() {
-        Function derivative1 = function1.derivative();
-        Function derivative2 = function2.derivative();
-        return new Sum(new Product(derivative1, function2), new Product(derivative2, function1));
+        //Function derivative1 = function1.derivative();
+        //Function derivative2 = function2.derivative();
+        return new Sum(new Product(function1.derivative(), function2), new Product(function2.derivative(), function1));
     }
 }
