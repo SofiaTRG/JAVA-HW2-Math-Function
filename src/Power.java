@@ -1,7 +1,7 @@
 public class Power extends Function {
 
-    private Function function;
-    private int exponent;
+    private final Function function;
+    private final int exponent;
 
     public Power(Function function, int exponent) {
         this.function = function;

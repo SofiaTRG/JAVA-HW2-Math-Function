@@ -1,6 +1,6 @@
 public class Difference extends Function{
-    Function function1;
-    Function function2;
+    private final Function function1;
+    private final Function function2;
 
     public Difference(Function function1, Function function2) {
         this.function1 = function1;
