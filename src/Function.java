@@ -90,15 +90,15 @@ public abstract class Function {
      */
     public Function taylorPolynomial(int n) {
         if (n > 0) {
+            double taylorArray[] = new double[n + 1];
             double factorial;
-            double taylorArr[] = new double[n + 1];
             Function derivative = this;
             for (int i = 0; i <= n; i++) {
                 factorial = factorial(i);
-                taylorArr[i] = (derivative.valueAt(0))/factorial;
+                taylorArray[i] = (derivative.valueAt(0))/factorial;
                 derivative = derivative.derivative();
             }
-            Polynomial taylorPolynomial = new Polynomial(taylorArr);
+            Polynomial taylorPolynomial = new Polynomial(taylorArray);
             return taylorPolynomial;
         } else {
             return new Polynomial(this.valueAt(0));
