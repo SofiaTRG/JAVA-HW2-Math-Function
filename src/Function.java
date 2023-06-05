@@ -11,14 +11,14 @@ public abstract class Function {
     public abstract double valueAt(double x);
 
     /**
-     *
-     * @return returns the function as string.
+     * makes a string of the function
+     * @return returns the string
      */
     public abstract String toString();
 
     /**
-     * the derivative of function.
-     * @return
+     * the derivative of function
+     * @return derivative
      */
     public abstract Function derivative();
 
@@ -105,6 +105,11 @@ public abstract class Function {
         }
     }
 
+    /**
+     * calculate the factorial of a number.
+     * @param i the number we want to calculate the factorial
+     * @return i!
+     */
     private double factorial(int i) {
         double factorial = 1;
         for (int k = 1; k <= i; k++) {
