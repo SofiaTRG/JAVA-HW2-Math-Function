@@ -1,11 +1,36 @@
+/**
+ * The abstract class of function. every son class will inherit from this class its methods
+ */
 public abstract class Function {
 
+    /**
+     * give the value of f(x) by the given x
+     * @param x the x we wnt to find it's f(x) value
+     * @return f(x)
+     */
     public abstract double valueAt(double x);
 
+    /**
+     *
+     * @return returns the function as string.
+     */
     public abstract String toString();
 
+    /**
+     * the derivative of function.
+     * @return
+     */
     public abstract Function derivative();
 
+    /**
+     * bisection method. by given two values(the first values of left and right boundaries) and epsilon.
+     * we change the left and right boundaries as we progress.
+     * the algorithm stops when the desired precision is achieved
+     * @param a left boundaries
+     * @param b right boundaries
+     * @param epsilon desired precision of the root approximation
+     * @return
+     */
     public double bisectionMethod(double a, double b, double epsilon) {
         double middle;
         double left = a;
@@ -20,11 +45,23 @@ public abstract class Function {
         return ((left+right) / 2);
     }
 
+    /**
+     * call the first bisection method, but set the epsilon 10^(-5)
+     * @param a left boundaries
+     * @param b right boundaries
+     * @return desired precision of the root approximation
+     */
     public double bisectionMethod(double a,double b){
         double epsilon = Math.pow(10,-5);
         return bisectionMethod(a, b, epsilon);
     }
 
+    /**
+     * search for approximate value near a with precision of epsilon.
+     * @param a The initial guess for the root
+     * @param epsilon the desired precision of the root approximation
+     * @return The estimated root of the function.
+     */
     public double newtonRaphsonMethod(double a, double epsilon) {
         double newton=a;
         while (Math.abs(valueAt(newton)) >= epsilon)
@@ -34,11 +71,23 @@ public abstract class Function {
         return newton;
     }
 
+    /**
+     * call the first Newthon Raphson method with epsilon value 10^(-5)
+     * @param a
+     * @return
+     */
     public double newtonRaphsonMethod(double a){
         double epsilon = Math.pow(10, -5);
         return newtonRaphsonMethod(a, epsilon);
     }
 
+    /**
+     * makes the taylor polynomial of function. The method uses a loop to calculate the coefficients of the Taylor
+     * polynomial by repeatedly taking derivatives of the function at 0 and dividing by the corresponding
+     * factorial value.
+     * @param n the degree of taylor
+     * @return taylor polynomial at value x=0
+     */
     public Function taylorPolynomial(int n) {
         if (n > 0) {
             double factorial;

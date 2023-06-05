@@ -4,6 +4,11 @@
 public final class Constant extends Function {
     private final double a;
 
+    /**
+     * give the value of f(x) by the given x
+     * @param x the x we wnt to find it's f(x) value
+     * @return f(x)
+     */
     @Override
     public double valueAt(double x) {
         return a;
