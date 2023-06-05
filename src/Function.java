@@ -29,7 +29,7 @@ public abstract class Function {
      * @param a left boundaries
      * @param b right boundaries
      * @param epsilon desired precision of the root approximation
-     * @return
+     * @return desired precision of the root approximation
      */
     public double bisectionMethod(double a, double b, double epsilon) {
         double middle;
@@ -73,8 +73,8 @@ public abstract class Function {
 
     /**
      * call the first Newthon Raphson method with epsilon value 10^(-5)
-     * @param a
-     * @return
+     * @param a The initial guess for the root
+     * @return The estimated root of the function.
      */
     public double newtonRaphsonMethod(double a){
         double epsilon = Math.pow(10, -5);

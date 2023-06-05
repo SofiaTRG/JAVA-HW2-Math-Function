@@ -52,8 +52,8 @@ public class DateTime extends Date {
 
     /**
      * checks if to dateTimes are same by checking their strings.
-     * @param otherDateTime
-     * @return
+     * @param otherDateTime the other datetime object
+     * @return true if both datetimes are equals, else otherwise
      */
     @Override
     public boolean equals(Object otherDateTime) {

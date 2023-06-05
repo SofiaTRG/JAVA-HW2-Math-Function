@@ -54,8 +54,8 @@ public class Date {
 
     /**
      * checks if to dates are same by checking their strings.
-     * @param otherDate
-     * @return
+     * @param otherDate the other date object we want to check
+     * @return true if both dates are equals, else otherwise
      */
     @Override
     public boolean equals(Object otherDate) {
