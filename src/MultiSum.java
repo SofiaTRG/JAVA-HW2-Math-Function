@@ -1,9 +1,15 @@
 public class MultiSum extends Function {
+
     private final Function[] functions;
 
-    public MultiSum(Function... functions) {
+    public MultiSum(Function function1, Function... functions) {
 
-        this.functions = functions;
+        this.functions = new Function[functions.length + 1];
+        this.functions[0] = function1;
+
+        for (int i=0; i < functions.length; i++) {
+            this.functions [i+1] = functions[i];
+        }
     }
 
     @Override
@@ -39,7 +45,12 @@ public class MultiSum extends Function {
             derivativeMulti[i] = function.derivative();
             i++;
         }
-        return new MultiSum(derivativeMulti);
+
+        Function[] newDerivatives = new Function[functions.length-1];
+        for (int j=1; j< functions.length; j++) {
+            newDerivatives[j-1] = derivativeMulti[j];
+        }
+
+        return new MultiSum(derivativeMulti[0], newDerivatives);
     }
 }
-

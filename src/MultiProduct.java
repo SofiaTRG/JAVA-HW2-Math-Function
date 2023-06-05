@@ -54,9 +54,11 @@ public class MultiProduct extends Function {
 
             derivatives[i] = new MultiProduct(functions[i].derivative(), otherFunctions);
         }
-        // TEST TEST TEST
-        //System.out.println("PRINT OF MULTI PRODUCT");
-        //System.out.println(new MultiSum(derivatives));
-        return new MultiSum(derivatives);
+        Function[] newDerivatives = new Function[functions.length-1];
+        for (int i=1; i< functions.length; i++) {
+            newDerivatives[i-1] = derivatives[i];
+        }
+
+        return new MultiSum(derivatives[0], newDerivatives);
     }
 }
